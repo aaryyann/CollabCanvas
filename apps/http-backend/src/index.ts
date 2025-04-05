@@ -1,7 +1,7 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"
-import { JWT_SECRET } from "@repo/backend-common/config";
+import { JWT_SECRET } from "@repo/backend-common/file";
 import { RoomSchema, SigninSchema, UserSchema } from "@repo/common/types";
 import { Middleware } from "./middleware";
 import { prismaClient } from "@repo/db/client"
