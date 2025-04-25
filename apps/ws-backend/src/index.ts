@@ -49,6 +49,8 @@ wss.on('connection' , function connection(ws , req){
             return;
         }
         
+
+        // Join 
         if (rawData.type === "join_room") {
             const roomId = rawData.roomId;
 
@@ -57,7 +59,6 @@ wss.on('connection' , function connection(ws , req){
                 ws.send(JSON.stringify({ type: "left", roomId: current.roomId }));
             }
 
-            // Join 
             userRoomMap.set(userId, { socket: ws, roomId });
 
             await prismaClient.user.update({
